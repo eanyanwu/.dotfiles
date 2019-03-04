@@ -14,13 +14,14 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'PProvost/vim-ps1'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " Show Line Number
 set number
 
 " Show relative line numbers
-set relativenumber
+set norelativenumber
 
 " Support for 256-color scheme?
 set termguicolors
@@ -30,6 +31,25 @@ noremap ; l
 noremap l k
 noremap k j
 noremap j h
+" Also map movement between windows to use j,k,l and ; 
+noremap <C-w>; <C-w>l
+noremap <C-w>l <C-w>k
+noremap <C-w>k <C-w>j
+noremap <C-w>j <C-w>h
+" Also Also perform the same mapping for normal, terminal and insert mode, except
+" using Alt.
+tnoremap <A-;> <C-\><C-N><C-w>l
+tnoremap <A-l> <C-\><C-N><C-w>k
+tnoremap <A-k> <C-\><C-N><C-w>j
+tnoremap <A-j> <C-\><C-N><C-w>h
+inoremap <A-;> <C-\><C-N><C-w>l
+inoremap <A-l> <C-\><C-N><C-w>k
+inoremap <A-k> <C-\><C-N><C-w>j
+inoremap <A-j> <C-\><C-N><C-w>h
+nnoremap <A-;> <C-w>l
+nnoremap <A-l> <C-w>k
+nnoremap <A-k> <C-w>j
+nnoremap <A-j> <C-w>h
 
 " Map the - key to: Delete the current line, then paste it below the one we're
 " on now. 
@@ -67,6 +87,9 @@ nnoremap <leader>ww :w<cr>
 " Show the tagbar on F10
 nnoremap <leader>t :TagbarToggle<cr>
 
+"Exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " Autocommands
 " Set text width when we open a new text file.
 autocmd BufNewFile *.txt :setlocal textwidth=70 
@@ -84,8 +107,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Theme settings
-set background=dark
-colorscheme palenight
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_underline = 1
+colorscheme gruvbox 
 
 " Status Line Settings
 set noshowmode
