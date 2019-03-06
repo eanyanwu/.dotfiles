@@ -9,9 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'mhartington/oceanic-next'
-Plug 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'PProvost/vim-ps1'
 Plug 'morhetz/gruvbox'
@@ -25,6 +23,27 @@ set norelativenumber
 
 " Support for 256-color scheme?
 set termguicolors
+
+" Indentation 
+set autoindent
+set smartindent
+
+" Tabs and spaces
+" Tabstop=8 -> we still want tabs to LOOK different thatn spaces. So we keep
+" tabstop at its default value of 8
+" softtabstop=0 -> disable this feature partly because i don't really understand
+" it.
+" shiftwidth=4 -> This is the value used to indent. It will also be used the
+" <TAB> character when the smarttab option is on.
+" expandtab -> Tab characters get converted to spaces.
+" smarttab -> Inserting a tab in insert mode uses shiftwidth option instead of
+" tabstop.
+" See https://stackoverflow.com/a/1878983
+set tabstop=8
+set softtabstop=0
+set shiftwidth=4
+set expandtab
+set smarttab
 
 " Use the more sane j, k, l, ; keys to navigate
 noremap ; l 
@@ -51,6 +70,12 @@ nnoremap <A-l> <C-w>k
 nnoremap <A-k> <C-w>j
 nnoremap <A-j> <C-w>h
 
+" Window Resizing
+nnoremap <leader>ih :resize +15<cr>
+nnoremap <leader>dh :resize -15<cr>
+nnoremap <leader>iw :vertical :resize +15<cr>
+nnoremap <leader>dw :vertical :resize -15<cr>
+
 " Map the - key to: Delete the current line, then paste it below the one we're
 " on now. 
 nnoremap <leader>- ddp
@@ -76,16 +101,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Source the .vimrc file from anywhere in normal mode
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" Open a new window with the directory listing of our current location
-nnoremap <leader>ov :vsplit .<cr>
-nnoremap <leader>oh :split .<cr>
-
 " Save - typing :w is not the easiest.
 " Disable :w to avoid using it.
 nnoremap <leader>ww :w<cr>
-
-" Show the tagbar on F10
-nnoremap <leader>t :TagbarToggle<cr>
 
 "Exit terminal mode
 tnoremap <Esc> <C-\><C-n>
