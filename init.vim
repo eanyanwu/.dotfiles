@@ -7,12 +7,9 @@ let maplocalleader = "\<Space>"
 " Plugins: vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'rust-lang/rust.vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'mhartington/oceanic-next'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'majutsushi/tagbar'
 Plug 'PProvost/vim-ps1'
 Plug 'morhetz/gruvbox'
+Plug 'maciakl/vim-neatstatus'
 call plug#end()
 
 " Show Line Number
@@ -50,12 +47,8 @@ noremap ; l
 noremap l k
 noremap k j
 noremap j h
-" Also map movement between windows to use j,k,l and ; 
-noremap <C-w>; <C-w>l
-noremap <C-w>l <C-w>k
-noremap <C-w>k <C-w>j
-noremap <C-w>j <C-w>h
-" Also Also perform the same mapping for normal, terminal and insert mode, except
+
+" Also perform the same mapping for normal, terminal and insert mode, except
 " using Alt.
 tnoremap <A-;> <C-\><C-N><C-w>l
 tnoremap <A-l> <C-\><C-N><C-w>k
@@ -76,6 +69,12 @@ nnoremap <leader>dh :resize -15<cr>
 nnoremap <leader>iw :vertical :resize +15<cr>
 nnoremap <leader>dw :vertical :resize -15<cr>
 
+" Window layout
+noremap <C-w>; <C-w>L
+noremap <C-w>l <C-w>K
+noremap <C-w>k <C-w>J
+noremap <C-w>j <C-w>H
+
 " Map the - key to: Delete the current line, then paste it below the one we're
 " on now. 
 nnoremap <leader>- ddp
@@ -88,7 +87,7 @@ nnoremap <leader>_ ddkP
 
 " Escape into normal mode by typing kl
 " Then disable the <esc> key in Input mode.
-inoremap kl <esc>
+inoremap <C-c> <esc>
 inoremap <esc> <nop>
 
 " Buffer Navigation
@@ -113,16 +112,6 @@ tnoremap <Esc> <C-\><C-n>
 autocmd BufNewFile *.txt :setlocal textwidth=70 
 " Enter Terminal-mode when we open a terminal window
 autocmd TermOpen * startinsert
-
-" Syntastic Settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Theme settings
 let g:gruvbox_bold = 1
