@@ -114,9 +114,6 @@ autocmd BufNewFile *.txt :setlocal textwidth=70
 autocmd TermOpen * startinsert
 
 " Theme settings
-let g:gruvbox_bold = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_underline = 1
 colorscheme gruvbox 
 
 " Status Line Settings
