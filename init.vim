@@ -85,6 +85,10 @@ nnoremap <leader>- ddp
 " line.
 nnoremap <leader>_ ddkP
 
+" Open new line without going into insert mode
+nnoremap <leader>o o<esc>k
+nnoremap <leader>O O<esc>j
+
 " Escape into normal mode by typing kl
 " Then disable the <esc> key in Input mode.
 inoremap <C-c> <esc>
