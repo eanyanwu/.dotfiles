@@ -7,6 +7,8 @@ let maplocalleader = "\<Space>"
 " Plugins: vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'PProvost/vim-ps1'
 Plug 'morhetz/gruvbox'
 Plug 'maciakl/vim-neatstatus'
