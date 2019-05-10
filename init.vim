@@ -12,6 +12,7 @@ Plug 'mxw/vim-jsx'
 Plug 'PProvost/vim-ps1'
 Plug 'morhetz/gruvbox'
 Plug 'maciakl/vim-neatstatus'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 
 " Show Line Number
@@ -96,6 +97,10 @@ nnoremap <leader>O O<esc>j
 inoremap <C-c> <esc>
 inoremap <esc> <nop>
 
+" Also change the omni key for ft_sql so it doesn't clash
+let g:ftplugin_sql_omni_key = '<C-j>'
+
+
 " Buffer Navigation
 " - Switch to buffer
 nnoremap <leader>b :buffers<cr>:buffer<space>
@@ -110,14 +115,39 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Disable :w to avoid using it.
 nnoremap <leader>ww :w<cr>
 
+" Remap folding/unfolding command
+nnoremap <leader>f za
+
 "Exit terminal mode
 tnoremap <Esc> <C-\><C-n>
 
 " Autocommands
-" Set text width when we open a new text file.
-autocmd BufNewFile *.txt :setlocal textwidth=70 
-" Enter Terminal-mode when we open a terminal window
-autocmd TermOpen * startinsert
+augroup custom
+    " Clear the autocommands in this group, before recreating
+    " them. This is necessary, because when we soruce
+    " a .vimrc file, the autocommands are re-added.
+    autocmd!
+    " Set text width when we open a new text file.
+    autocmd BufNewFile *.txt :setlocal textwidth=70
+    " Enter Terminal-mode when we open a terminal window
+    autocmd TermOpen * startinsert
+augroup END
+
+augroup python_files
+    "Autocommands for python
+    autocmd!
+    " Enable folding for python files
+    autocmd FileType python :setlocal foldmethod=indent
+    autocmd FileType python :setlocal foldlevel=99
+    " PEP 8 tab/indentation
+    autocmd FileType python setlocal tabstop=4
+    autocmd FileType python setlocal softtabstop=4
+    autocmd FileType python setlocal shiftwidth=4
+    autocmd FileType python setlocal textwidth=79
+    autocmd FileType python setlocal expandtab
+    autocmd FileType python setlocal autoindent
+    autocmd FileType python setlocal fileformat=unix
+augroup END
 
 " Theme settings
 colorscheme gruvbox 
