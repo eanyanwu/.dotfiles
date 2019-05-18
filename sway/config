@@ -1,6 +1,3 @@
-# Read `man 5 sway` for a complete reference.
-
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -12,18 +9,7 @@ set $down k
 set $up l
 set $right semicolon
 
-# Your preferred terminal emulator
-set $term alacritty 
-
-set $browser firefox
-
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
-
-
 # Colors
-
 set $black #202020
 set $purple #8789C0
 set $orange #EB5E28
@@ -33,15 +19,23 @@ set $green #5DFDCB
 set $grey #333333
 set $darkergrey #292d2e
 
+# Your preferred terminal emulator
+set $term alacritty 
+
+# Your preferred application launcher
+set $menu bemenu-run -p HELLO --fn monospace 20 | xargs swaymsg exec
+
+### Input Configuration
+    input "2:7:SynPS/2_Synaptics_TouchPad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+    }
+
 ### Output configuration
-output * bg /home/eze/wallpapers/archlinux-stripes fill
-#
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+    output * bg /home/eze/wallpapers/archlinux-stripes fill
+
     output {
         eDP-1 mode 1920x1080 pos 0,0
         HDMI-A-2 mode 1920x1080 pos 1920,0
@@ -55,9 +49,6 @@ output * bg /home/eze/wallpapers/archlinux-stripes fill
 #
     # start a terminal
     bindsym $mod+Return exec $term
-
-    # Start a browser
-    bindsym $mod+n exec MOZ_ENABLE_WAYLAND=1 firefox
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -124,7 +115,7 @@ output * bg /home/eze/wallpapers/archlinux-stripes fill
 #
 # Layout stuff:
 #
-    default_border pixel 10
+    default_border pixel 5 
 
     # Gaps!! :)
     exec_always swaymsg gaps inner all set 12
