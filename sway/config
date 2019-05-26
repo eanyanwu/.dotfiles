@@ -20,7 +20,7 @@ set $grey #333333
 set $darkergrey #292d2e
 
 # Your preferred terminal emulator
-set $term alacritty 
+set $term kitty 
 
 # Your preferred application launcher
 set $menu bemenu-run -p HELLO --fn monospace 20 | xargs swaymsg exec
@@ -117,9 +117,6 @@ set $menu bemenu-run -p HELLO --fn monospace 20 | xargs swaymsg exec
 #
     default_border pixel 5 
 
-    # Gaps!! :)
-    exec_always swaymsg gaps inner all set 12
-
     # Colorize!
     client.focused $orange $orange $black $white $orange
     client.unfocused $grey $grey $white $darkergrey $grey
@@ -210,10 +207,10 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%A %B %d %Y :: %T'; do sleep 1; done
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
     status_padding 12
 
-    font pango:Noto Serif 13 
+    font pango:Noto Sans 18
 
     colors {
         statusline $white 
