@@ -23,7 +23,7 @@ set $darkergrey #292d2e
 set $term kitty 
 
 # Your preferred application launcher
-set $menu bemenu-run -p HELLO --fn monospace 20 | xargs swaymsg exec
+set $menu bemenu-run -p SEARCH: --fn monospace 20 | xargs swaymsg exec
 
 ### Input Configuration
     input "2:7:SynPS/2_Synaptics_TouchPad" {
@@ -69,22 +69,12 @@ set $menu bemenu-run -p HELLO --fn monospace 20 | xargs swaymsg exec
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
 
     # _move_ the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
 
 # Workspaces:
 
@@ -192,6 +182,9 @@ bindsym $mod+r mode "resize"
     bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
+# Keyboard brightness
+    bindsym $mod+Down exec kb-light.py - 1
+    bindsym $mod+Up exec kb-light.py + 1 
 # Sound buttons
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -205,10 +198,9 @@ bindsym $mod+r mode "resize"
 bar {
     position bottom 
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while ~/.config/sway/status.sh; do sleep 1; done
+    status_command i3status -c ~/.config/sway/i3status.conf
     status_padding 12
+    separator_symbol " // "
 
     font pango:Noto Sans 18
 

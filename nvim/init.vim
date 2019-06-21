@@ -1,3 +1,6 @@
+" Disbale the awful netrw :/ 
+let loaded_netrwPlugin = 1
+
 " Set the Leader
 let mapleader = "\<Space>"
 
@@ -13,6 +16,7 @@ Plug 'PProvost/vim-ps1'
 Plug 'morhetz/gruvbox'
 Plug 'maciakl/vim-neatstatus'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " Show Line Number
@@ -158,7 +162,7 @@ set noshowmode
 " Directory Listing Settings
 " These were suggested form the :help netrw
 set nocp
-filetype plugin indent on
+" filetype plugin indent on
 " Remove the banner
 let g:netrw_banner = 0
 " Change the list style to tree
@@ -167,5 +171,3 @@ let g:netrw_liststyle = 4
 let g:netrw_browse_split = 2
 " Set the width of the explorer
 let g:netrw_winsize = 25
-" Shorter mapping for opening explorer
-nnoremap :vex :Vexplore
