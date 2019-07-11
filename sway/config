@@ -38,17 +38,25 @@ set $menu bemenu-run -p SEARCH: --fn monospace 20 | xargs swaymsg exec
 
     output {
         eDP-1 mode 1920x1080 pos 0,0
-        HDMI-A-2 mode 1920x1080 pos 1920,0
+        HDMI-A-2 mode 1920x1080 pos -1920,0
     }
 
+    # Bindings for manually enabling/disabling mi display
     bindsym $mod+z exec swaymsg output HDMI-A-2 disable
     bindsym $mod+x exec swaymsg output HDMI-A-2 enable
+
+    # Disable the laptop display when it is closed
+    bindswitch lid:on output eDP-1 disable
+    bindswitch lid:off output eDP-1 enable
 
 ### Key bindings
 # Basics:
 #
     # start a terminal
     bindsym $mod+Return exec $term
+
+    # start the interwebs browser
+    bindsym $mod+i exec firefox
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -198,11 +206,11 @@ bindsym $mod+r mode "resize"
 bar {
     position bottom 
 
+    font pango:Noto Sans Display 18
+
     status_command i3status -c ~/.config/sway/i3status.conf
     status_padding 12
     separator_symbol " // "
-
-    font pango:Noto Sans 18
 
     colors {
         statusline $white 
