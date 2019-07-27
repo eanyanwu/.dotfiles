@@ -46,8 +46,8 @@ set $menu bemenu-run -p SEARCH: --fn monospace 20 | xargs swaymsg exec
     bindsym $mod+x exec swaymsg output HDMI-A-2 enable
 
     # Disable the laptop display when it is closed
-    bindswitch lid:on output eDP-1 disable
-    bindswitch lid:off output eDP-1 enable
+    bindswitch lid:on output eDP-1 disable 
+    bindswitch lid:off output eDP-1 enable 
 
 ### Key bindings
 # Basics:
@@ -204,9 +204,9 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position bottom 
+    position top
 
-    font pango:Noto Sans Display 18
+    font pango:Noto Sans Display 14
 
     status_command i3status -c ~/.config/sway/i3status.conf
     status_padding 12

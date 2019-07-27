@@ -16,10 +16,8 @@ alias ls='ls -Al --color=auto'
 # Firefox needs this to work 
 export MOZ_ENABLE_WAYLAND=1
 
-# kitty terminal needs this to work
-export KITTY_ENABLE_WAYLAND=1
-
 # bmenu needs this to work 
 export BEMENU_BACKEND=wayland
 
-#export QT_QPA_PLATFORM=wayland
+# Zeal needs this to work
+export QT_QPA_PLATFORM=wayland
