@@ -1,0 +1,80 @@
+# CWM Configuratoin File
+
+# Colors
+# black #202020
+# purple #8789C0
+# orange #EB5E28
+# white #DBD3D8
+# blue #7CC6FE
+# green #5DFDCB
+# grey #333333
+# darkergrey #292d2e
+
+# Unbind all mouse buttons
+unbind-mouse all
+
+# Unbind all keys
+unbind-key all
+
+# The window border width in pixels
+borderwidth 5
+
+# Assign any new windows to the currently selected group
+sticky yes
+
+# Set some border colors
+color inactiveborder "#333333"
+color activeborder "#eb5e28"
+color groupborder "#dbd3d8"
+
+
+# Minimum distance to snap-to adjacent edge in pixels
+snapdist 4
+
+### Bindings
+# 4 = Windows Key
+# S = Shift Key
+# M = Meta (Alt) Key
+# C = Control (Ctrl) Key
+
+# Kill a window
+bind-key 4S-q window-close
+
+# Open the terminal
+bind-key 4-Return terminal
+
+# Open the launcher
+bind-key 4-d menu-exec
+
+# Restart cwm
+bind-key 4S-c restart
+
+# Fullscreen a window pls
+bind-key 4-f window-fullscreen
+
+
+# Move across workspace
+bind-key 4-1 group-only-1
+bind-key 4-2 group-only-2
+bind-key 4-3 group-only-3
+bind-key 4-4 group-only-4
+bind-key 4-5 group-only-5
+bind-key 4-6 group-only-6
+bind-key 4-7 group-only-7
+bind-key 4-8 group-only-8
+bind-key 4-9 group-only-9
+
+# Move a window to another group
+bind-key 4S-1 window-movetogroup-1
+bind-key 4S-2 window-movetogroup-2
+bind-key 4S-3 window-movetogroup-3
+bind-key 4S-4 window-movetogroup-4
+bind-key 4S-5 window-movetogroup-5
+bind-key 4S-6 window-movetogroup-6
+bind-key 4S-7 window-movetogroup-7
+bind-key 4S-8 window-movetogroup-8
+bind-key 4S-9 window-movetogroup-9
+
+
+# Cycle through windows in the current group
+bind-key S-Tab window-cycle-ingroup
