@@ -1,4 +1,4 @@
-# CWM Configuratoin File
+# CWM Configuration File
 
 # Colors
 # black #202020
@@ -9,6 +9,9 @@
 # green #5DFDCB
 # grey #333333
 # darkergrey #292d2e
+
+# Space for the status bar
+gap 40 0 0 0
 
 # Unbind all mouse buttons
 unbind-mouse all
@@ -44,14 +47,19 @@ bind-key 4S-q window-close
 bind-key 4-Return terminal
 
 # Open the launcher
-bind-key 4-d menu-exec
+bind-key 4-d "dmenu_run -b -i -fn 'DejaVu Sans Mono' -sb '#8789c0'"
 
 # Restart cwm
 bind-key 4S-c restart
 
-# Fullscreen a window pls
-bind-key 4-f window-fullscreen
+# Maximize a window pls
+bind-key 4-f window-maximize
 
+# Vertically-tile a window
+bind-key 4-v window-vmaximize
+
+# Horizontally-tile a window
+bind-key 4-b window-hmaximize
 
 # Move across workspace
 bind-key 4-1 group-only-1
@@ -75,6 +83,7 @@ bind-key 4S-7 window-movetogroup-7
 bind-key 4S-8 window-movetogroup-8
 bind-key 4S-9 window-movetogroup-9
 
+#### Mouse bindings
 
-# Cycle through windows in the current group
-bind-key S-Tab window-cycle-ingroup
+# Move windows around
+bind-mouse 4-1 window-move

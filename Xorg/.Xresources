@@ -3,6 +3,9 @@ XTerm.vt100.background: #282828
 XTerm.vt100.foreground: #ebdbb2
 XTerm*faceName: DejaVu Sans Mono 
 XTerm*faceSize: 16
-!XTerm.vt100.font: -*-fixed-*-r-*-*-18-*-*-*-*-*-iso10646-* 
-!XTerm.vt100.utf8font: -*-fixed-*-r-*-*-18-*-*-*-*-*-iso10646-*
 XTerm.vt100.internalBorder: 13
+
+! Dzen2 Settings
+dzen2.font: DejaVu Sans Mono
+dzen2.foreground: #ebdbb2
+dzen2.background: #282828
