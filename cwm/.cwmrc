@@ -32,7 +32,7 @@ color groupborder "#dbd3d8"
 
 
 # Minimum distance to snap-to adjacent edge in pixels
-snapdist 4
+snapdist 20
 
 ### Bindings
 # 4 = Windows Key
@@ -49,17 +49,26 @@ bind-key 4-Return terminal
 # Open the launcher
 bind-key 4-d "dmenu_run -b -i -fn 'DejaVu Sans Mono' -sb '#8789c0'"
 
+# Open the password manager and get password
+bind-key 4-p "sh -c '~/Scripts/passmenu.sh'" 
+
+# Lock the screen
+bind-key 4-l lock
+
 # Restart cwm
 bind-key 4S-c restart
 
 # Maximize a window pls
 bind-key 4-f window-maximize
 
-# Vertically-tile a window
-bind-key 4-v window-vmaximize
+# Vertically-tile a window. Only works when other windows are around
+bind-key 4-v window-vtile
 
-# Horizontally-tile a window
-bind-key 4-b window-hmaximize
+# Horizontally-tile a window. Only works when other windows are around
+bind-key 4-b window-htile
+
+# Cycle between windows in a group
+bind-key 4-Tab window-cycle-ingroup
 
 # Move across workspace
 bind-key 4-1 group-only-1

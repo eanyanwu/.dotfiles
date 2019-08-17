@@ -1,6 +1,7 @@
 ! Xterm Settings
 XTerm.vt100.background: #282828
 XTerm.vt100.foreground: #ebdbb2
+XTerm.vt100.scrollBar: false
 XTerm*faceName: DejaVu Sans Mono 
 XTerm*faceSize: 16
 XTerm.vt100.internalBorder: 13
